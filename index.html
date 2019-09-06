@@ -8,6 +8,17 @@
 $(function(){
   $("#header").load("tools/header.html");
   $("#footer").load("tools/footer.html");
+  var nightImage = "tools/background.png";
+  var morningImage = "tools/hooch.jpg";
+  //if it's evening, then use the DC picture. If it's morning, use Columbus
+  var localHour = new Date().getHours(); 
+
+  var imageURL = nightImage;
+  if (localHour < 12){
+    imageURL = morningImage;
+  }
+  //use CSS to set the background image URL
+  $("#home").css("background", "url(" + imageURL + ") 50% 0 repeat fixed");
 });
 </script>
 
